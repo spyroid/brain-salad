@@ -2,7 +2,6 @@ package com.symetricum.brainsalad.adventofcode.day6;
 
 import com.symetricum.brainsalad.adventofcode.day5.Boarding;
 import lombok.Data;
-import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +19,7 @@ public class CustomCustoms2 {
         Q q = new Q();
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            if (StringUtils.hasLength(line)) {
+            if (!line.isBlank()) {
                 q.add(line);
             } else {
                 qs.add(q);

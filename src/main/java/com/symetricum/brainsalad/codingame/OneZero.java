@@ -1,13 +1,7 @@
 package com.symetricum.brainsalad.codingame;
 
-import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
-
-//@Component
 public class OneZero {
 
-    @PostConstruct
     void init() {
         System.err.println(find("11101111"));
         System.err.println(find("01"));

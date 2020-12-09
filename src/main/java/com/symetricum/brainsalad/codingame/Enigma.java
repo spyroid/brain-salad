@@ -1,18 +1,10 @@
 package com.symetricum.brainsalad.codingame;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collector;
-import java.util.stream.Stream;
 
-@Slf4j
-//@Service
 public class Enigma {
 
-    @PostConstruct
     void start() {
         String rotor1 = "BDFHJLCPRTXVZNYEIWGAKMUSQO";
         String rotor2 = "AJDKSIRUXBLHWTMCQGZNPYFVOE";
@@ -28,14 +20,13 @@ public class Enigma {
 //        log.info(s1.toString());
 
         int v = ('Y' - 65 + 22 + startNumber) % ('Z' - 65);
-        log.info(v + "");
 
         AtomicInteger inc = new AtomicInteger();
         String res = message.chars().boxed()
                 .map(i -> {
                     int c = i + startNumber + inc.getAndIncrement();
                     if (c > 'Z') c = (c - 65) % ('Z' - 65) + 65;
-                    log.info(i + " -> " + c + " " + inc.get());
+//                    log.info(i + " -> " + c + " " + inc.get());
                     return c;
                 })
                 .map(c -> rotor1.charAt(c - 65))

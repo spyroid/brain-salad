@@ -1,14 +1,10 @@
 package com.symetricum.brainsalad.adventofcode.day4;
 
 import com.symetricum.brainsalad.adventofcode.day1.ReportRepair;
-import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicLong;
 
 public class Passports {
 
@@ -21,7 +17,7 @@ public class Passports {
 
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
-            if (StringUtils.hasLength(line)) {
+            if (!line.isBlank()) {
                 String[] parts = line.split(" ");
                 for (String part: parts) {
                     String[] pp = part.split(":");
