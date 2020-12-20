@@ -15,6 +15,8 @@ repositories {
 dependencies {
 //	implementation 'org.springframework.boot:spring-boot-starter'
 
+	implementation 'one.util:streamex:0.7.3'
+
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
