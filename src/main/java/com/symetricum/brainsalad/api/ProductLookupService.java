@@ -1,5 +1,7 @@
 package com.symetricum.brainsalad.api;
 
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import com.symetricum.brainsalad.api.ApiHandler.Product;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,17 +17,27 @@ import java.util.List;
 @Service
 public class ProductLookupService {
 
+    Cache<SearchKey, Product> cache = Caffeine.newBuilder().expireAfterWrite(Duration.ofMinutes(10)).build();
+
     @PostConstruct
     void init() {
 
-        List<Product> res = find(SearchKeyBuilder.create("ADP").addKey("123").build());
+        List<ProductWrapper> res = find(SearchKeyBuilder.create("ADP").addKey("123").build());
 
     }
 
-    List<Product> find(List<SearchKey> searchKeys) {
+    List<ProductWrapper> find(List<SearchKey> searchKeys) {
+
+        List<ProductWrapper> res = new ArrayList<>();
+
+        for(SearchKey key: searchKeys) {
+
+        }
 
         // productDao.find(searchKeys);
-        return List.of();
+
+
+        return res;
 
     }
 
@@ -59,4 +72,6 @@ public class ProductLookupService {
     }
 
 
+    static class ProductWrapper {
+    }
 }
