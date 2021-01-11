@@ -13,9 +13,11 @@ repositories {
 }
 
 dependencies {
-//	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
 	implementation 'one.util:streamex:0.7.3'
+	implementation 'am.ik.yavi:yavi:0.4.1'
+	implementation 'com.github.ben-manes.caffeine:caffeine:2.8.8'
 
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
